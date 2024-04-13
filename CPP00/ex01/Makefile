@@ -2,7 +2,7 @@ CC = c++
 
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SOURCE = phonebook.cpp \
+SOURCE = main.cpp phonebook.cpp contact.cpp\
 
 OBJ = $(SOURCE:.cpp=.o)
 

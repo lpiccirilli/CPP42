@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 11:38:45 by luca              #+#    #+#             */
-/*   Updated: 2024/04/13 16:58:51 by luca             ###   ########.fr       */
+/*   Updated: 2024/04/13 18:42:29 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 #define PHONEBOOK
 
 #include "contact.hpp"
-#include <iostream>
 
 class phonebook
 {
-	contact contact[8];
+	private:
+		contact contacts[8];
+	public:
+		phonebook();
+		void	print_book();
+		void	add_contact();
+		~phonebook();
 };
 
 

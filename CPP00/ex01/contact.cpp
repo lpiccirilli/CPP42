@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 11:50:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/13 19:12:22 by luca             ###   ########.fr       */
+/*   Created: 2024/04/13 17:07:19 by luca              #+#    #+#             */
+/*   Updated: 2024/04/13 18:32:14 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#include "contact.hpp"
 
-#include <iostream>
-
-class contact
+contact::contact()
 {
-	private:
-		std::string f_name;
-		std::string l_name;
-		std::string nickname;
-		std::string number;
-		std::string dark_secret;
-		int	index;
-	public:
-		contact();
-		~contact();
-};
 
-#endif
+}
+
+contact::~contact()
+{
+
+}
+
+void contact::add_data()
+{
+
+}

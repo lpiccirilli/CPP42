@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 11:50:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/13 19:12:22 by luca             ###   ########.fr       */
+/*   Created: 2024/04/13 18:18:46 by luca              #+#    #+#             */
+/*   Updated: 2024/04/13 19:18:50 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-#define CONTACT_HPP
+#include "phonebook.hpp"
+#include "contact.hpp"
 
-#include <iostream>
-
-class contact
+int	main()
 {
-	private:
-		std::string f_name;
-		std::string l_name;
-		std::string nickname;
-		std::string number;
-		std::string dark_secret;
-		int	index;
-	public:
-		contact();
-		~contact();
-};
-
-#endif
+	phonebook phone;
+	std::string input;
+	std::cout << "PLEASE ENTER ADD, SEARCH OR EXIT: ";
+	std::cin >> input;
+	while(input.compare("EXIT") != 0)
+	{
+		if (input.compare("ADD") == 0)
+		{
+			
+		}
+	}
+}
