@@ -23,7 +23,7 @@ int	main()
 	{
 		if (input.compare("ADD") == 0)
 		{
-			
+			phone.add();
 		}
 	}
 }

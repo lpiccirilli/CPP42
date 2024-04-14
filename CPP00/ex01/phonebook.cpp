@@ -24,9 +24,5 @@ phonebook::~phonebook()
 
 void phonebook::print_book()
 {
-	int i = 0;
-	while(i < 8)
-	{
-		if (contacts[i])
-	}
+	
 }
