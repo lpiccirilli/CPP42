@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 11:50:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/13 19:12:22 by luca             ###   ########.fr       */
+/*   Updated: 2024/04/15 18:40:56 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CONTACT_HPP
 
 #include <iostream>
+#include <limits>
 
 class contact
 {
@@ -26,6 +27,8 @@ class contact
 		int	index;
 	public:
 		contact();
+		void add_data(int index);
+		std::string get_input(std::string str);
 		~contact();
 };
 

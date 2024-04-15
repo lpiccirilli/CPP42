@@ -7,7 +7,7 @@ SOURCE = main.cpp phonebook.cpp contact.cpp\
 OBJ = $(SOURCE:.cpp=.o)
 
 %.o:%.cpp
-	$(CC) $(CPPFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 NAME = phonebook
 
