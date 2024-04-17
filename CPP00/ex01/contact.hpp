@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 11:50:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/15 18:40:56 by luca             ###   ########.fr       */
+/*   Updated: 2024/04/16 18:41:32 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 #include <iostream>
 #include <limits>
+#include <iomanip>
+#include <cstring>
+#include <cstdlib>
+#include <string>
+
 
 class contact
 {
@@ -27,9 +32,12 @@ class contact
 		int	index;
 	public:
 		contact();
+		~contact();
+		std::string check_len(std::string str);
 		void add_data(int index);
 		std::string get_input(std::string str);
-		~contact();
+		void print_search();
+		void print_searched();
 };
 
 #endif
