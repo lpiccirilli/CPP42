@@ -5,23 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 16:10:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/23 20:19:09 by luca             ###   ########.fr       */
+/*   Created: 2024/04/30 21:10:40 by luca              #+#    #+#             */
+/*   Updated: 2024/05/03 18:14:11 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "AMateria.hpp"
 
-int main( void )
+int main()
 {
-	Fixed a( 10.4f / 2);
-	Fixed temp (a);
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << Fixed::max(a, temp) << std::endl;
-	std::cout << Fixed::min(a, temp) << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
 	return 0;
 }

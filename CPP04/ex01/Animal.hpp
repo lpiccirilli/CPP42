@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 16:10:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/23 20:19:09 by luca             ###   ########.fr       */
+/*   Created: 2024/04/25 17:44:10 by luca              #+#    #+#             */
+/*   Updated: 2024/04/29 18:55:16 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+#include <iostream>
 
-int main( void )
+class Animal
 {
-	Fixed a( 10.4f / 2);
-	Fixed temp (a);
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << Fixed::max(a, temp) << std::endl;
-	std::cout << Fixed::min(a, temp) << std::endl;
-	return 0;
-}
+	protected:
+		std::string type;
+	public:
+		Animal();
+		virtual ~Animal();
+		virtual void makeSound() const;
+		std::string getType() const;
+		Animal operator=(const Animal* animal);
+};
+
+#include "SubClasses.hpp"
+
+#endif

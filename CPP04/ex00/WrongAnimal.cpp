@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 16:10:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/23 20:19:09 by luca             ###   ########.fr       */
+/*   Created: 2024/04/26 14:44:15 by luca              #+#    #+#             */
+/*   Updated: 2024/04/26 15:02:18 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "WrongAnimal.hpp"
 
-int main( void )
+WrongAnimal::WrongAnimal()
 {
-	Fixed a( 10.4f / 2);
-	Fixed temp (a);
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << Fixed::max(a, temp) << std::endl;
-	std::cout << Fixed::min(a, temp) << std::endl;
-	return 0;
+	std::cout << "WrongAnimal constructor called" << std::endl;
+}
+
+WrongAnimal::~WrongAnimal()
+{
+	std::cout << "WrongAnimal destructor called" << std::endl;
+}
+
+void WrongAnimal::makeSound() const
+{
+	std::cout << "faccio suono wrong dai\n";
 }

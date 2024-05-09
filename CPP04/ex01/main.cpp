@@ -5,23 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 16:10:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/23 20:19:09 by luca             ###   ########.fr       */
+/*   Created: 2024/04/25 17:49:48 by luca              #+#    #+#             */
+/*   Updated: 2024/04/29 18:42:46 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Animal.hpp"
 
-int main( void )
+int main()
 {
-	Fixed a( 10.4f / 2);
-	Fixed temp (a);
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << Fixed::max(a, temp) << std::endl;
-	std::cout << Fixed::min(a, temp) << std::endl;
-	return 0;
+	int i = 0;
+	Animal *array[100];
+	for (i = 0; i < 5; i++)
+		array[i] = new Dog();
+	for (i = 5; i < 10; i++)
+		array[i] = new Cat();
+	for (i = 0; i < 10; i++)
+		delete (array[i]);
 }

@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   SubClasses.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 16:10:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/23 20:19:09 by luca             ###   ########.fr       */
+/*   Created: 2024/04/25 17:49:33 by luca              #+#    #+#             */
+/*   Updated: 2024/04/30 12:29:37 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-
-int main( void )
+#ifndef SUBCLASSES_HPP
+#define SUBCLASSES_HPP
+#include "AAnimal.hpp"
+#include "Brain.hpp"
+class Dog : public AAnimal
 {
-	Fixed a( 10.4f / 2);
-	Fixed temp (a);
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << Fixed::max(a, temp) << std::endl;
-	std::cout << Fixed::min(a, temp) << std::endl;
-	return 0;
-}
+	private:
+		Brain* brain;
+	public:
+		Dog();
+		~Dog();
+		void makeSound() const;
+};
+
+class Cat : public AAnimal
+{
+	private:
+		Brain* brain;
+	public:
+		Cat();
+		~Cat();
+		void makeSound() const ;
+};
+
+#endif

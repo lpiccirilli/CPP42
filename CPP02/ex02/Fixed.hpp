@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 16:09:44 by luca              #+#    #+#             */
-/*   Updated: 2024/04/21 18:49:54 by luca             ###   ########.fr       */
+/*   Updated: 2024/04/23 20:17:18 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ class Fixed
 		Fixed operator++(int);
 		Fixed operator--(int);
 
+		static Fixed & min(Fixed & a, Fixed & b );
+		static Fixed & max(Fixed & a, Fixed & b );
+		static const Fixed & min(const Fixed & a, const Fixed & b );
+		bool operator<(const Fixed& source) const;
+		static const Fixed & max(const Fixed & a, const Fixed & b );
+		bool operator>(const Fixed& source) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& Fixed);

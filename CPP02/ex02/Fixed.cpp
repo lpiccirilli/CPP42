@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 16:10:25 by luca              #+#    #+#             */
-/*   Updated: 2024/04/21 20:39:06 by luca             ###   ########.fr       */
+/*   Updated: 2024/04/23 20:17:53 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,21 @@ bool Fixed::operator>(const Fixed& source)
 	return false;
 }
 
+bool Fixed::operator>(const Fixed& source) const
+{
+	if (this->_fixed_value > source._fixed_value)
+		return true;
+	return false;
+}
+
 bool Fixed::operator<(const Fixed& source)
+{
+	if (this->_fixed_value < source._fixed_value)
+		return true;
+	return false;
+}
+
+bool Fixed::operator<(const Fixed& source) const
 {
 	if (this->_fixed_value < source._fixed_value)
 		return true;
@@ -138,4 +152,94 @@ Fixed Fixed::operator*(const Fixed& source)
 	result.setRawBits(this->getRawBits() * source.getRawBits());
 	result._fixed_value >>= result._bits;
 	return result;
+}
+
+Fixed Fixed::operator/(const Fixed& source)
+{
+	Fixed result;
+	result.setRawBits(this->getRawBits() / source.getRawBits());
+	result._fixed_value <<= result._bits;
+	return result;
+}
+
+Fixed Fixed::operator+=(const Fixed& source)
+{
+	*this = *this + source;
+	return (*this);
+}
+
+Fixed Fixed::operator-=(const Fixed& source)
+{
+	*this = *this - source;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed	ret;
+	int	tmp;
+
+	ret = *this;
+	tmp = this->getRawBits();
+	this->setRawBits(++tmp);
+	return ret;
+}
+
+Fixed& Fixed::operator++()
+{
+	int tmp;
+	tmp = this->getRawBits();
+	this->setRawBits(++tmp);
+	return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed	ret;
+	int	tmp;
+
+	ret = *this;
+	tmp = this->getRawBits();
+	this->setRawBits(--tmp);
+	return ret;
+}
+
+Fixed& Fixed::operator--()
+{
+	int tmp;
+	tmp = this->getRawBits();
+	this->setRawBits(--tmp);
+	return *this;
+}
+
+Fixed& Fixed::min(Fixed & a, Fixed & b )
+{
+	if (a < b)
+		return a;
+	else
+		return b;
+}
+
+const Fixed& Fixed::min(const Fixed & a,const Fixed & b )
+{
+	if (a < b)
+		return a;
+	else
+		return b;
+}
+
+Fixed& Fixed::max(Fixed & a, Fixed & b )
+{
+	if (a > b)
+		return a;
+	else
+		return b;
+}
+
+const Fixed& Fixed::max(const Fixed & a,const Fixed & b )
+{
+	if (a > b)
+		return a;
+	else
+		return b;
 }
