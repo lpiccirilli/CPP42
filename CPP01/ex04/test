@@ -2,14 +2,14 @@ CC = c++
 
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SOURCE = main.cpp phonebook.cpp contact.cpp\
+SOURCE = main.cpp replace.cpp \
 
 OBJ = $(SOURCE:.cpp=.o)
 
 %.o:%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-NAME = Phonebook
+NAME = replace
 
 all: $(NAME)
 

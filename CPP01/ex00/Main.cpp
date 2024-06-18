@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:55:54 by luca              #+#    #+#             */
-/*   Updated: 2024/04/19 15:19:17 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 17:09:35 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,7 @@ int main()
 {
 	Zombie *z;
 	z = newZombie("foo");
+	z->announce();
+	randomChump("bar");
 	delete (z);
 }

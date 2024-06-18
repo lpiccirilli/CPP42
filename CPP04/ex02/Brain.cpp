@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:40:43 by luca              #+#    #+#             */
-/*   Updated: 2024/04/26 17:59:00 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 18:00:50 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,11 @@ Brain::Brain()
 Brain::~Brain()
 {
 	std::cout << "brain destructor\n";
+}
+
+Brain& Brain::operator=(const Brain& brain)
+{
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = brain.ideas[i];
+	return *this;
 }

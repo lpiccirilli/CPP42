@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:39:04 by luca              #+#    #+#             */
-/*   Updated: 2024/04/24 14:57:59 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 17:52:41 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ FragTrap::FragTrap(std::string name) : ClapTrap (name)
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap destructor called" << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& fragtrap)
+{
+	_Name = fragtrap._Name;
+	_hit_points = fragtrap._hit_points;
+	_energy_points = fragtrap._energy_points;
+	_attack_damage = fragtrap._attack_damage;
+	return *this;
 }
 
 void FragTrap::highFivesGuys()

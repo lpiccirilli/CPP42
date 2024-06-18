@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:47:22 by luca              #+#    #+#             */
-/*   Updated: 2024/04/26 15:51:14 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 18:00:29 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ Dog::~Dog()
 	std::cout << "Dog destructor called" << std::endl;
 }
 
+Dog& Dog::operator=(const Dog &dog)
+{
+	this->type = dog.type;
+	return *this;
+}
+
 Cat::Cat()
 {
 	this->brain = new Brain();
@@ -36,6 +42,12 @@ Cat::~Cat()
 {
 	delete brain;
 	std::cout << "Cat destructor called" << std::endl;
+}
+
+Cat &Cat::operator=(const Cat &cat)
+{
+	this->type = cat.type;
+	return *this;
 }
 
 void Cat::makeSound() const

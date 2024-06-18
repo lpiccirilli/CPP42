@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:44:10 by luca              #+#    #+#             */
-/*   Updated: 2024/04/26 15:06:13 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 17:56:21 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Animal
 	public:
 		Animal();
 		virtual ~Animal();
+		Animal& operator=(const Animal& animal);
 		virtual void makeSound() const;
 		std::string getType() const;
 };

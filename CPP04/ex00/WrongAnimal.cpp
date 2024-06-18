@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:44:15 by luca              #+#    #+#             */
-/*   Updated: 2024/04/26 15:02:18 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 17:58:02 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ WrongAnimal::WrongAnimal()
 WrongAnimal::~WrongAnimal()
 {
 	std::cout << "WrongAnimal destructor called" << std::endl;
+}
+
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& wronganimal)
+{
+	this->type = wronganimal.type;
+	return *this;
 }
 
 void WrongAnimal::makeSound() const

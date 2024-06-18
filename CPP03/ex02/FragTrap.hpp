@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:38 by luca              #+#    #+#             */
-/*   Updated: 2024/04/24 14:57:07 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 17:52:49 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class FragTrap : ClapTrap
 	public:
 	FragTrap(std::string name);
 	~FragTrap();
+	FragTrap& operator=(const FragTrap& fragtrap);
 	void highFivesGuys(void);
 	void attack(std::string target);
 };

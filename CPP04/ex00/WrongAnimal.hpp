@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:44:12 by luca              #+#    #+#             */
-/*   Updated: 2024/04/26 14:59:05 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 17:57:55 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class WrongAnimal
 	public:
 		WrongAnimal();
 		virtual ~WrongAnimal();
+		WrongAnimal& operator=(const WrongAnimal& wronganimal);
 		virtual void makeSound() const;
 };
 

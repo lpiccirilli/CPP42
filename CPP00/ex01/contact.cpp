@@ -6,62 +6,59 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 17:07:19 by luca              #+#    #+#             */
-/*   Updated: 2024/04/16 18:08:56 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 16:21:46 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "contact.hpp"
 
-contact::contact()
+Contact::Contact()
 {
 
 }
 
-contact::~contact()
+Contact::~Contact()
 {
 
 }
 
-void contact::print_searched()
+Contact::Contact(std::string f_name, std::string l_name, std::string nickname, std::string number, std::string dark_secret)
 {
-	std::cout << "NAME=        " << this->f_name << std::endl;
-	std::cout << "LAST NAME=   " << this->l_name << std::endl;
-	std::cout << "NICKNAME=    " << this->nickname << std::endl;
-	std::cout << "NUMBER=      " <<this->number << std::endl;
-	std::cout << "DARK SECRET= " << this->dark_secret << std::endl;
+	this->f_name = f_name;
+	this->l_name = l_name;
+	this->nickname = nickname;
+	this->number = number;
+	this->dark_secret = dark_secret;
 }
 
-std::string	contact::check_len(std::string str)
+std::string Contact::get_f_name()
 {
-	if (str.length() > 10)
-		return (str.substr(0,9) + ".");
-	return str;
+	return (this->f_name);
 }
 
-void contact::print_search()
+std::string Contact::get_l_name()
 {
-	std::cout << "|" << std::setw(10) << this->index;
-	std::cout << "|" << std::setw(10) << check_len(this->f_name);
-	std::cout << "|" << std::setw(10) << check_len(this->l_name);
-	std::cout << "|" << std::setw(10) << check_len(this->nickname) << "|\n";
+	return (this->l_name);
+}
+std::string Contact::get_nickname()
+{
+	return (this->nickname);
+}
+std::string Contact::get_number()
+{
+	return (this->number);
+}
+std::string Contact::get_dark_secret()
+{
+	return (this->dark_secret);
 }
 
-std::string contact::get_input(std::string str)
+void	Contact::print_searched()
 {
-	std::string input;
-	std::cout << "please enter your " << str;
-	std::cin >> input;
-	std::cin.clear();
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	return (input);
-}
-
-void contact::add_data(int index)
-{
-	this->index = index;
-	this->f_name = get_input("first name > ");
-	this->l_name = get_input("last name > ");
-	this->nickname = get_input("nickname > ");
-	this->number = get_input("number > ");
-	this->dark_secret = get_input ("dark secret > ");
+	std::cout << "NAME : " << this->f_name << std::endl;
+	std::cout <<"LAST NAME : " << this->l_name << std::endl;
+	std::cout << "NICKNAME : " << this->nickname << std::endl;
+	std::cout << "NUMBER : " << this->number << std::endl;
+	std::cout << "DARK SECRET : " << this->dark_secret << std::endl;
 }

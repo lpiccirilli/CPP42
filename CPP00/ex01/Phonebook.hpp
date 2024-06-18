@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 11:38:45 by luca              #+#    #+#             */
-/*   Updated: 2024/04/17 12:24:05 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 16:19:23 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK
-#define PHONEBOOK
+#ifndef Phonebook_hpp
+#define Phonebook_hpp
 
 #include "contact.hpp"
 
-class phonebook
+class Phonebook
 {
 	private:
-		contact contacts[8];
+		Contact contacts[8];
 	public:
+		Phonebook();
+		~Phonebook();
 		int	index;
 		int	num_contacts;
-		phonebook();
 		void	add_contact();
 		void	search_contact();
-		~phonebook();
+		void	print_dot(std::string str);
 };
 
 #endif
