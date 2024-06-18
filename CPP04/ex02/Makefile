@@ -6,7 +6,7 @@
 #    By: luca <luca@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 17:37:34 by luca              #+#    #+#              #
-#    Updated: 2024/04/30 12:30:16 by luca             ###   ########.fr        #
+#    Updated: 2024/06/18 18:04:54 by luca             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ = $(SOURCE:.cpp=.o)
 %.o:%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-NAME = animal
+NAME = aanimal
 
 all: $(NAME)
 

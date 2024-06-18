@@ -6,10 +6,12 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:08:40 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:59:29 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 18:05:21 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 #include <iostream>
 
 class Brain
@@ -21,3 +23,5 @@ class Brain
 		~Brain();
 		Brain& operator=(const Brain& brain);
 };
+
+#endif

@@ -6,10 +6,12 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 16:09:44 by luca              #+#    #+#             */
-/*   Updated: 2024/04/23 20:17:18 by luca             ###   ########.fr       */
+/*   Updated: 2024/06/18 18:05:45 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+#define FIXED_HPP
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -61,5 +63,4 @@ class Fixed
 
 std::ostream& operator<<(std::ostream& os, const Fixed& Fixed);
 
-
-
+#endif
