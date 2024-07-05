@@ -6,13 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:48:10 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:52:55 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:20:13 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap (name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap constructor called" << std::endl;
 }
@@ -20,6 +20,14 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap (name)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor called" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& scavtrap) : ClapTrap(scavtrap)
+{
+	if (this == &scavtrap)
+		return ;
+	*this = scavtrap;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& scavtrap)

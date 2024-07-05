@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:44:10 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:41:03 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/06 00:04:54 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ class Animal
 		std::string type;
 	public:
 		Animal();
-		Animal(const Animal* animal);
 		virtual ~Animal();
+		Animal& operator=(const Animal& animal);
 		virtual void makeSound() const;
 		std::string getType() const;
-		Animal operator=(const Animal* animal);
 };
 
-#include "SubClasses.hpp"
+#include "Brain.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 #endif

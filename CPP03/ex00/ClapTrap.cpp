@@ -6,13 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 23:46:06 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:50:26 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 21:20:16 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name) : _Name(name)
 {
 	_Name = name;
 	_hit_points = 10;
@@ -24,6 +24,14 @@ ClapTrap::ClapTrap(std::string name)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& claptrap)
+{
+	if (this == &claptrap)
+		return ;
+	*this = claptrap;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& claptrap)

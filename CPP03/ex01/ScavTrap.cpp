@@ -6,13 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:48:10 by luca              #+#    #+#             */
-/*   Updated: 2024/04/24 14:31:48 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:19:50 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap (name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap constructor called" << std::endl;
 }
@@ -20,6 +20,23 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap (name)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor called" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& scavtrap) : ClapTrap(scavtrap)
+{
+	if (this == &scavtrap)
+		return ;
+	*this = scavtrap;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& scavtrap)
+{
+	_Name = scavtrap._Name;
+	_hit_points = scavtrap._hit_points;
+	_energy_points = scavtrap._energy_points;
+	_attack_damage = scavtrap._attack_damage;
+	return *this;
 }
 
 void ScavTrap::guardGate()

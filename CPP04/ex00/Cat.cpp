@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 17:44:10 by luca              #+#    #+#             */
-/*   Updated: 2024/04/30 12:28:27 by luca             ###   ########.fr       */
+/*   Created: 2024/07/05 23:23:09 by luca              #+#    #+#             */
+/*   Updated: 2024/07/05 23:23:56 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
-#include <iostream>
-
-class AAnimal
-{
-	protected:
-		std::string type;
-	public:
-		AAnimal();
-		virtual ~AAnimal();
-		virtual void makeSound() const = 0;
-		std::string getType() const;
-		AAnimal& operator=(const AAnimal& animal);
-		AAnimal(const AAnimal &animal);
-};
-
-#include "Brain.hpp"
 #include "Cat.hpp"
-#include "Dog.hpp"
 
-#endif
+Cat::Cat()
+{
+	type = "Cat";
+	std::cout << "Cat constructor called" << std::endl;
+}
+
+Cat::~Cat()
+{
+	std::cout << "Cat destructor called" << std::endl;
+}
+
+Cat::Cat(const Cat &cat)
+{
+	if (this == &cat)
+		return ;
+	*this = cat;
+	std::cout << "Cat copy constructor called" << std::endl;
+}
+
+Cat &Cat::operator=(const Cat &cat)
+{
+	this->type = cat.type;
+	return *this;
+}
+
+void Cat::makeSound() const
+{
+	std::cout << "miao\n";
+}
+

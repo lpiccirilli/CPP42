@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:44:10 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:56:21 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:29:46 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Animal
 		std::string getType() const;
 };
 
-#include "SubClasses.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
 #endif

@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SubClasses.hpp                                     :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 17:49:33 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:42:38 by luca             ###   ########.fr       */
+/*   Created: 2024/07/05 23:22:52 by luca              #+#    #+#             */
+/*   Updated: 2024/07/05 23:37:42 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SUBCLASSES_HPP
-#define SUBCLASSES_HPP
-#include "AAnimal.hpp"
-#include "Brain.hpp"
-class Dog : public AAnimal
-{
-	private:
-		Brain* brain;
-	public:
-		Dog();
-		~Dog();
-		Dog& operator=(const Dog& dog);
-		Dog(const Dog& dog);
-		void makeSound() const;
-};
+#ifndef CAT_HPP
+#define CAT_HPP
 
-class Cat : public AAnimal
+#include "Animal.hpp"
+
+class Cat : public Animal
 {
-	private:
-		Brain* brain;
 	public:
 		Cat();
 		~Cat();
-		Cat& operator=(const Cat& cat);
-		Cat(const Cat& cat);
+		Cat(const Cat &cat);
+		Cat& operator=(const Cat &cat);
 		void makeSound() const ;
+	private:
+		Brain *brain;
 };
 
 #endif

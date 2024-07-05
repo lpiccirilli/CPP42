@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 23:45:47 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:16:16 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:04:37 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 int main()
 {
-	ScavTrap dio("cane");
-	dio.guardGate();
-	dio.attack("dio");
-	FragTrap dios ("cane");
-	dios.highFivesGuys();
-	dios.attack("dio");
 	DiamondTrap diamond("diamond");
 	diamond.whoAmI();
+	diamond.attack("dio");
 }

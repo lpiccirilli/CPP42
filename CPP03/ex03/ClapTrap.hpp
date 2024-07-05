@@ -6,14 +6,14 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 23:47:13 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:16:03 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:12:06 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
-
 #include <iostream>
+
 class ClapTrap
 {
 	protected:
@@ -26,10 +26,10 @@ class ClapTrap
 		ClapTrap(std::string name);
 		~ClapTrap();
 		ClapTrap& operator=(const ClapTrap& claptrap);
+		ClapTrap(const ClapTrap& claptrap);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+
 
 #endif

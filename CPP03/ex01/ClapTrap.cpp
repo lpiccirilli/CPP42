@@ -6,24 +6,24 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 23:46:06 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:52:14 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 21:19:53 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name) : _Name(name)
 {
 	_Name = name;
 	_hit_points = 100;
 	_energy_points = 50;
 	_attack_damage = 20;
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& claptrap)
@@ -33,6 +33,14 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& claptrap)
 	_energy_points = claptrap._energy_points;
 	_attack_damage = claptrap._attack_damage;
 	return *this;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& claptrap)
+{
+	if (this == &claptrap)
+		return ;
+	*this = claptrap;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

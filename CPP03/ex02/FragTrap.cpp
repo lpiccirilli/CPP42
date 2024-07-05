@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:39:04 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:52:41 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:00:54 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ FragTrap& FragTrap::operator=(const FragTrap& fragtrap)
 	_energy_points = fragtrap._energy_points;
 	_attack_damage = fragtrap._attack_damage;
 	return *this;
+}
+
+FragTrap::FragTrap(const FragTrap& fragtrap) : ClapTrap(fragtrap)
+{
+	if (this == &fragtrap)
+		return ;
+	*this = fragtrap;
+	std::cout << "FragTrap copy constructor called" << std::endl;
 }
 
 void FragTrap::highFivesGuys()

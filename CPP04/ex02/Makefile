@@ -6,7 +6,7 @@
 #    By: luca <luca@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/25 17:37:34 by luca              #+#    #+#              #
-#    Updated: 2024/06/18 18:04:54 by luca             ###   ########.fr        #
+#    Updated: 2024/07/06 00:10:39 by luca             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = c++
 
 CFLAGS = -std=c++98 -g -Wall -Wextra -Werror
 
-SOURCE = main.cpp AAnimal.cpp SubClasses.cpp Brain.cpp\
+SOURCE = main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp\
 
 OBJ = $(SOURCE:.cpp=.o)
 

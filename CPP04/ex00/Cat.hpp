@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 17:49:48 by luca              #+#    #+#             */
-/*   Updated: 2024/07/06 00:04:20 by luca             ###   ########.fr       */
+/*   Created: 2024/07/05 23:22:52 by luca              #+#    #+#             */
+/*   Updated: 2024/07/05 23:23:38 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CAT_HPP
+#define CAT_HPP
+
 #include "Animal.hpp"
 
-int main()
+class Cat : public Animal
 {
-	int n = 0;
-	Animal *array[10];
-	for (n = 0; n < 5; n++)
-		array[n] = new Dog();
-	for (n = 5; n < 10; n++)
-		array[n] = new Cat();
-	for (n = 0; n < 10; n++)
-		delete (array[n]);
-	Dog basic;
-	{
-		basic.setBrain("cane", 0);
-		Dog tmp = basic;
-		Brain *b = basic.getBrain();
-		std::cout << b->getIdea(0) << std::endl;
-	}
-}
+	public:
+		Cat();
+		~Cat();
+		Cat(const Cat &cat);
+		Cat& operator=(const Cat &cat);
+		void makeSound() const ;
+};
+
+#endif

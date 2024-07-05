@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:38:38 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:02:04 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:13:12 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 #define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include <iostream>
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 	FragTrap(std::string name);
 	~FragTrap();
 	FragTrap& operator=(const FragTrap& fragtrap);
+	FragTrap(const FragTrap& fragtrap);
 	void highFivesGuys(void);
 	void attack(std::string target);
 };

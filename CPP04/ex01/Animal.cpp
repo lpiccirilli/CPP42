@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:50:53 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:40:56 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:30:04 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,18 @@ Animal::~Animal()
 	std::cout << "Animal destructor called" << std::endl;
 }
 
+Animal& Animal::operator=(const Animal &animal)
+{
+	this->type = animal.type;
+	return *this;
+}
+
 void Animal::makeSound() const
 {
-	std::cout << "faccio suono dai\n";
+	std::cout << "cats don’t bark\n";
 }
 
 std::string Animal::getType() const
 {
 	return this->type;
-}
-
-Animal Animal::operator=(const Animal *animal)
-{
-	return (*animal);
-}
-
-Animal::Animal(const Animal *animal)
-{
-	*this = *animal;
 }

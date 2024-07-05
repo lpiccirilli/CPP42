@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SubClasses.hpp                                     :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 17:49:33 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:58:13 by luca             ###   ########.fr       */
+/*   Created: 2024/07/05 23:17:30 by luca              #+#    #+#             */
+/*   Updated: 2024/07/05 23:47:23 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SUBCLASSES_HPP
-#define SUBCLASSES_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
+
 #include "Animal.hpp"
 
 class Dog : public Animal
@@ -20,16 +21,12 @@ class Dog : public Animal
 		Dog();
 		~Dog();
 		Dog& operator=(const Dog& dog);
+		Dog(const Dog& dog);
 		void makeSound() const;
-};
-
-class Cat : public Animal
-{
-	public:
-		Cat();
-		~Cat();
-		Cat& operator=(const Cat &cat);
-		void makeSound() const ;
+		Brain* getBrain() const;
+		void setBrain(std::string idea, int index);
+	private:
+		Brain *brain;
 };
 
 #endif

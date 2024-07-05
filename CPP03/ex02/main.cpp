@@ -6,18 +6,16 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 23:45:47 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 13:56:33 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 23:01:24 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	ScavTrap dio("cane");
-	dio.guardGate();
-	dio.attack("dio");
 	FragTrap dios ("cane");
+	FragTrap truce = dios;
 	dios.highFivesGuys();
 	dios.attack("dio");
 }
