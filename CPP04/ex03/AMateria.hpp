@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 13:05:04 by luca              #+#    #+#             */
-/*   Updated: 2024/05/03 18:11:37 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 14:55:04 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class AMateria
 		std::string type;
 	public:
 		AMateria();
+		virtual ~AMateria();
 		AMateria(std::string const & type);
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;

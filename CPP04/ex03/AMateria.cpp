@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 12:48:45 by luca              #+#    #+#             */
-/*   Updated: 2024/05/06 15:27:12 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 14:56:20 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ AMateria::AMateria(std::string const & type)
 std::string const & AMateria::getType() const
 {
 	return this->type;
+}
+
+AMateria::~AMateria()
+{
+
 }
 
 void AMateria::use(ICharacter &target)
