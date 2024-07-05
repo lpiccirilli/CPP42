@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:50:53 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:59:12 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 14:40:56 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ std::string Animal::getType() const
 Animal Animal::operator=(const Animal *animal)
 {
 	return (*animal);
+}
+
+Animal::Animal(const Animal *animal)
+{
+	*this = *animal;
 }

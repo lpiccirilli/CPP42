@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 15:08:40 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 18:05:21 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 14:38:51 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Brain
 		Brain();
 		~Brain();
 		Brain& operator=(const Brain& brain);
+		Brain(const Brain& brain);
 };
 
 #endif

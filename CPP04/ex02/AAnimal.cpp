@@ -37,3 +37,8 @@ AAnimal& AAnimal::operator=(const AAnimal &animal)
 	*this = animal;
 	return (*this);
 }
+
+AAnimal::AAnimal(const AAnimal &animal)
+{
+	*this = animal;
+}

@@ -24,6 +24,7 @@ class AAnimal
 		virtual void makeSound() const = 0;
 		std::string getType() const;
 		AAnimal& operator=(const AAnimal& animal);
+		AAnimal(const AAnimal &animal);
 };
 
 #include "SubClasses.hpp"

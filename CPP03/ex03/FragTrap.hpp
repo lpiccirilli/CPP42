@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 15:40:43 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:40:25 by luca             ###   ########.fr       */
+/*   Created: 2024/04/24 14:38:38 by luca              #+#    #+#             */
+/*   Updated: 2024/07/05 14:02:04 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-Brain::Brain()
-{
-	std::cout << "brain constructor\n";
-}
+#include "ClapTrap.hpp"
 
-Brain::~Brain()
+class FragTrap : public virtual ClapTrap
 {
-	std::cout << "brain destructor\n";
-}
+	public:
+	FragTrap(std::string name);
+	~FragTrap();
+	FragTrap& operator=(const FragTrap& fragtrap);
+	void highFivesGuys(void);
+	void attack(std::string target);
+};
 
-Brain& Brain::operator=(const Brain& brain)
-{
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = brain.ideas[i];
-	return *this;
-}
-
-Brain::Brain(const Brain& brain)
-{
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = brain.ideas[i];
-}
+#endif

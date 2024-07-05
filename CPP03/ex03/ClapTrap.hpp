@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 17:44:10 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:41:03 by luca             ###   ########.fr       */
+/*   Created: 2024/04/23 23:47:13 by luca              #+#    #+#             */
+/*   Updated: 2024/07/05 14:16:03 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
-#include <iostream>
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-class Animal
+#include <iostream>
+class ClapTrap
 {
 	protected:
-		std::string type;
+		std::string _Name;
+		int			_hit_points;
+		int			_energy_points;
+		int			_attack_damage;
 	public:
-		Animal();
-		Animal(const Animal* animal);
-		virtual ~Animal();
-		virtual void makeSound() const;
-		std::string getType() const;
-		Animal operator=(const Animal* animal);
+		void attack(const std::string& target);
+		ClapTrap(std::string name);
+		~ClapTrap();
+		ClapTrap& operator=(const ClapTrap& claptrap);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
 };
-
-#include "SubClasses.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 #endif

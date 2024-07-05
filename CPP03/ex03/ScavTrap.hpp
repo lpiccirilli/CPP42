@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 15:40:43 by luca              #+#    #+#             */
-/*   Updated: 2024/07/05 14:40:25 by luca             ###   ########.fr       */
+/*   Created: 2024/04/24 12:48:45 by luca              #+#    #+#             */
+/*   Updated: 2024/07/05 14:08:01 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#ifndef ScavTrap_HPP
+#define ScavTrap_HPP
 
-Brain::Brain()
-{
-	std::cout << "brain constructor\n";
-}
+#include <iostream>
+#include <string>
+#include "ClapTrap.hpp"
 
-Brain::~Brain()
+class ScavTrap: public virtual ClapTrap
 {
-	std::cout << "brain destructor\n";
-}
+	public:
+	ScavTrap(std::string name);
+	~ScavTrap();
+	ScavTrap& operator=(const ScavTrap& scavtrap);
+	void guardGate();
+	void attack(std::string name);
+};
 
-Brain& Brain::operator=(const Brain& brain)
-{
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = brain.ideas[i];
-	return *this;
-}
-
-Brain::Brain(const Brain& brain)
-{
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = brain.ideas[i];
-}
+#endif

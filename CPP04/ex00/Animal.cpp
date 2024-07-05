@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:50:53 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 17:56:43 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 14:23:06 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Animal& Animal::operator=(const Animal &animal)
 
 void Animal::makeSound() const
 {
-	std::cout << "faccio suono dai\n";
+	std::cout << "cats don’t bark\n";
 }
 
 std::string Animal::getType() const

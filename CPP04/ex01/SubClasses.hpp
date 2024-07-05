@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 17:49:33 by luca              #+#    #+#             */
-/*   Updated: 2024/06/18 18:00:13 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/05 14:35:37 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Dog : public Animal
 		Dog();
 		~Dog();
 		Dog& operator=(const Dog& dog);
+		Dog(const Dog& dog);
 		void makeSound() const;
 };
 
@@ -33,6 +34,7 @@ class Cat : public Animal
 		Cat();
 		~Cat();
 		Cat& operator=(const Cat& cat);
+		Cat(const Cat& cat);
 		void makeSound() const ;
 };
 
