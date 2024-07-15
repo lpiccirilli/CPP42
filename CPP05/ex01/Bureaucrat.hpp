@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:22:03 by luca              #+#    #+#             */
-/*   Updated: 2024/07/13 19:14:13 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/13 19:12:35 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 #include <string>
 #include <exception>
 #include <ostream>
-#include <bool>
+
+#include "Form.hpp"
 
 class Bureaucrat
 {

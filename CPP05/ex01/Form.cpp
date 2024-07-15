@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 19:21:54 by luca              #+#    #+#             */
-/*   Updated: 2024/07/13 19:10:29 by luca             ###   ########.fr       */
+/*   Created: 2024/07/13 19:34:10 by luca              #+#    #+#             */
+/*   Updated: 2024/07/13 19:38:25 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int main()
+Form::Form(std::string name, const int gradeToSign, const int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
-	try
-	{
-		Bureaucrat Luca("Luca", 1);
-		Bureaucrat Bob("Bob", 150);
-		Bob = Luca;
-		std::cout << Luca << std::endl;
-		std::cout << Bob << std::endl;
-		Luca.incrementGrade();
-		Luca.decrementGrade();
-		std::cout << Luca << std::endl;
-		std::cout << Bob << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	if (gradeToExecute > 150 || gradeToSign > 150)
+		throw GradeTooLowException();
+	if (gradeToExecute < 1 || gradeToSign < 1)
+		throw GradeTooHighException();
 }
+

@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 19:22:03 by luca              #+#    #+#             */
-/*   Updated: 2024/07/13 19:14:13 by luca             ###   ########.fr       */
+/*   Created: 2024/07/13 19:12:05 by luca              #+#    #+#             */
+/*   Updated: 2024/07/13 19:39:55 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
-#include <iostream>
-#include <string>
-#include <exception>
-#include <ostream>
-#include <bool>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Form
 {
 	private:
 		const std::string name;
-		int grade;
+		bool isSigned;
+		const int gradeToSign;
+		const int gradeToExecute;
 	public:
-		Bureaucrat(std::string name, int grade);
-		Bureaucrat(const Bureaucrat& bureaucrat);
-		Bureaucrat& operator=(const Bureaucrat& bureaucrat);
-		std::string getName() const;
-		int getGrade() const;
-		void incrementGrade();
-		void decrementGrade();
+		Form(std::string name, const int gradeToSign, const int gradeToExecute);
+		std::string getName();
+		bool getisSigned();
+		int getgradeToSign();
+		int getgradeToExectute();
 		class GradeTooHighException : public std::exception
 		{
 			virtual const char* what() const throw();
@@ -41,7 +37,5 @@ class Bureaucrat
 			virtual const char* what() const throw();
 		};
 };
-
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif
