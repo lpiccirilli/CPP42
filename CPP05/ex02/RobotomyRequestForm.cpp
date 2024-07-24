@@ -1,25 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 19:21:54 by luca              #+#    #+#             */
-/*   Updated: 2024/07/16 16:43:21 by luca             ###   ########.fr       */
+/*   Created: 2024/07/16 15:30:18 by luca              #+#    #+#             */
+/*   Updated: 2024/07/16 15:36:23 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-
-int main()
-{
-	try
-	{
-		ShrubberyCreationForm("casa");
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-}
+#include "RobotomyRequestForm.hpp"

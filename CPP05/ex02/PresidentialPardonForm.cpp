@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 19:21:54 by luca              #+#    #+#             */
-/*   Updated: 2024/07/16 16:43:21 by luca             ###   ########.fr       */
+/*   Created: 2024/07/16 15:32:53 by luca              #+#    #+#             */
+/*   Updated: 2024/07/16 15:47:07 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main()
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 145, 137), target(target)
 {
-	try
-	{
-		ShrubberyCreationForm("casa");
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
 }
