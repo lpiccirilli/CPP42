@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 16:23:38 by luca              #+#    #+#             */
-/*   Updated: 2024/07/13 19:09:45 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/15 17:44:15 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,15 @@ void Bureaucrat::decrementGrade()
 	grade++;
 	if (grade > 150)
 		throw GradeTooLowException();
+}
+
+void Bureaucrat::signForm(Form& f)
+{
+	if (getGrade() <= f.getgradeToSign())
+	{
+		f.beSigned(*this);
+		std::cout << getName() << " signed " << f.getName() << std::endl;
+	}
+	else
+		std::cout << getName() << " couldn’t sign " << f.getName() << " because grade is too low" << std::endl;
 }

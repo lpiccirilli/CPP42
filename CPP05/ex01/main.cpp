@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:21:54 by luca              #+#    #+#             */
-/*   Updated: 2024/07/13 19:10:29 by luca             ###   ########.fr       */
+/*   Updated: 2024/07/16 15:24:33 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,21 @@ int main()
 {
 	try
 	{
-		Bureaucrat Luca("Luca", 1);
-		Bureaucrat Bob("Bob", 150);
-		Bob = Luca;
-		std::cout << Luca << std::endl;
-		std::cout << Bob << std::endl;
-		Luca.incrementGrade();
-		Luca.decrementGrade();
-		std::cout << Luca << std::endl;
-		std::cout << Bob << std::endl;
+		Bureaucrat bureaucrat("John", 5);
+
+		bureaucrat.incrementGrade();
+		bureaucrat.decrementGrade();
+		// Proviamo a creare un form e firmarlo
+		Form form("Tax Form", 5, 3);
+		bureaucrat.signForm(form);
+		Form form2("Napoli Form", 5, 3);
+		// Proviamo a firmare il form con un grado troppo basso
+		Bureaucrat bureaucrat2("Alice", 10);
+		bureaucrat2.signForm(form2);
 	}
-	catch (std::exception& e)
+	catch (const std::exception &e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+	return 0;
 }
