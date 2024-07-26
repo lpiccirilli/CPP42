@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 16:54:56 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 16:57:51 by luca             ###   ########.fr       */
+/*   Created: 2024/07/25 19:36:54 by luca              #+#    #+#             */
+/*   Updated: 2024/07/25 19:41:20 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
-#include "AForm.hpp"
-#include <cstdlib>
+#include <iostream>
 
-class RobotomyRequestForm : public AForm
+class ScalarConverter
 {
-	private:
-		std::string target;
-	public:
-		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm &operator=(const RobotomyRequestForm &r);
-		RobotomyRequestForm(const RobotomyRequestForm &r);
-		void execute(Bureaucrat &executor);
-		std::string getTarget();
+	
 };
 
 #endif

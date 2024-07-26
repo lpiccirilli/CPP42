@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 19:21:54 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:24:20 by luca             ###   ########.fr       */
+/*   Created: 2024/07/25 19:11:06 by luca              #+#    #+#             */
+/*   Updated: 2024/07/25 19:23:37 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef INTERN_HPP
+#define INTERN_HPP
+
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-int main()
+class Intern
 {
-	try
-	{
-		Bureaucrat b("b", 1);
-		ShrubberyCreationForm dio("home");
-		RobotomyRequestForm robot("robot");
-		PresidentialPardonForm pres("pres");
-		dio.beSigned(b);
-		pres.beSigned(b);
-		robot.beSigned(b);
-		dio.execute(b);
-		pres.execute(b);
-		robot.execute(b);
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-}
+	public:
+		Intern();
+		Intern &operator=(const Intern &i);
+		Intern(const Intern &i);
+		AForm *makeForm(std::string form, std::string target);
+		~Intern();
+		class FormNotFoundException : public std::exception
+		{
+			virtual const char *what() const throw()
+			{
+				return "Form not found";
+			}
+		};
+};
+
+#endif
