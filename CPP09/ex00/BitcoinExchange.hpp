@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:06:50 by luca              #+#    #+#             */
-/*   Updated: 2024/08/19 15:53:06 by luca             ###   ########.fr       */
+/*   Updated: 2024/11/11 16:54:23 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class BitcoinExchange
 		BitcoinExchange &operator=(const BitcoinExchange &other);
 		~BitcoinExchange();
 		void get_input(char *file_name);
-		int convert_string(std::string str);
+		std::map<int, float> convert_string(std::string str);
 };
 
 #endif
