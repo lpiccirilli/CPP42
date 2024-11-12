@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:08:09 by luca              #+#    #+#             */
-/*   Updated: 2024/08/15 18:15:00 by luca             ###   ########.fr       */
+/*   Updated: 2024/11/12 17:28:05 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(int ac , char **av)
 		return 1;
 	}
 	BitcoinExchange Bitcoin;
-	Bitcoin.get_input(av[1]);
+	Bitcoin.get_input();
+	Bitcoin.print_data(av[1]);
 }
 
