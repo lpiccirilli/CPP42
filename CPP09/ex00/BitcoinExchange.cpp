@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 17:06:47 by luca              #+#    #+#             */
-/*   Updated: 2024/11/12 20:04:44 by luca             ###   ########.fr       */
+/*   Updated: 2024/11/13 17:30:10 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,6 @@ float strToNum(std::string str)
 	float result;
 	ss >> result;
 	return result;
-}
-
-std::map<int, float> check_date(int date, float price)
-{
-	std::map<int, float> input_data;
-	if (date < 20090102 || date > 20220329)
-	{
-		input_data[date] = DATE_ERROR;
-		return input_data;
-	}
-	if (price < 0 || price > 1000)
-	{
-		input_data[date] = PRICE_ERROR;
-		return input_data;
-	}
-	input_data[date] = price;
-	return input_data;
 }
 
 std::map<int, float> BitcoinExchange::convert_string(std::string str)
@@ -160,7 +143,7 @@ void BitcoinExchange::get_exchange(std::string str)
 	}
 	if (result < 20090102 || result > 20220329)
 	{
-		std::cerr << original << " >>invalid year" << std::endl;
+		std::cerr << original << " >> invalid year" << std::endl;
 		return ;
 	}
 	for(std::map<int, float>::iterator it = input_data.begin(); it != input_data.end(); ++it)
