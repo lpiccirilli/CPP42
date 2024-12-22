@@ -20,8 +20,9 @@ RPN::RPN(char *str)
 		std::cerr << "Parsing Error" << std::endl;
 		return ;
 	}
-	for (char temp = *str; temp!=0; temp=*str++)
+	for (int i; str[i] != '\0'; i++)
 	{
+		char temp = str[i];
 		switch(temp)
 		{
 			case ' ':
@@ -46,10 +47,15 @@ RPN::RPN(char *str)
 				do_operation('/');
 				break;
 			}
-			default:
+			case '0' ... '9':
 			{
 				stack.push(temp - '0');
 				break;
+			}
+			default:
+			{
+				std::cerr << "Error" << std::endl;
+				return ;
 			}
 		}
 	}
@@ -61,6 +67,11 @@ RPN::RPN(char *str)
 
 void RPN::do_operation(char c)
 {
+	if (stack.size() < 2)
+	{
+		std::cerr << "Error" << std::endl;
+		return ;
+	}
 	int b = stack.top();
 	stack.pop();
 	int a = stack.top();
