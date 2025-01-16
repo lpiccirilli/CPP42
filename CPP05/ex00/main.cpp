@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:21:54 by luca              #+#    #+#             */
-/*   Updated: 2024/07/13 19:10:29 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/16 17:00:53 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int main()
 		Bob = Luca;
 		std::cout << Luca << std::endl;
 		std::cout << Bob << std::endl;
-		Luca.incrementGrade();
 		Luca.decrementGrade();
+		Bob.incrementGrade();
 		std::cout << Luca << std::endl;
 		std::cout << Bob << std::endl;
 	}
