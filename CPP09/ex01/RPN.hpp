@@ -10,7 +10,7 @@ class RPN
 	public:
 		RPN(char *str);
 		std::stack<int> stack;
-		void do_operation(char c);
+		void do_operation(char c);0
 
 };
 
