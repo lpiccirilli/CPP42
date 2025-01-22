@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:54:54 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:24:31 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/17 15:34:14 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &r) : AForm(r
 	*this = r;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat &executor)
+void RobotomyRequestForm::execute(Bureaucrat const &executor)
 {
 	int num = 0;
 	if (executor.getGrade() > this->getgradeToExectute())

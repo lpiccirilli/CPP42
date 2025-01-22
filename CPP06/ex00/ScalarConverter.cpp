@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:22:21 by luca              #+#    #+#             */
-/*   Updated: 2024/08/14 15:23:33 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/22 16:42:32 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ScalarConverter::ScalarConverter(const ScalarConverter& other)
 
 void ScalarConverter::ConvertFloat(float f)
 {
-	if (isprint(static_cast<int>(f)) == 0)
+	if (f < 0 || f > 255 || std::isprint(static_cast<int>(f)) == 0)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
@@ -45,9 +45,9 @@ void ScalarConverter::ConvertFloat(float f)
 
 void ScalarConverter::ConvertInt(int n)
 {
-	if (isprint(static_cast<int>(n)) == 0)
+	if (n < 0 || n > 255 || std::isprint(static_cast<int>(n)) == 0)
 			std::cout << "char: Non displayable" << std::endl;
-		else
+	else
 			std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
 		std::cout << "int: " << n << std::endl;
 		std::cout << "float: " << static_cast<float>(n) << "f" << std::endl;
@@ -56,7 +56,7 @@ void ScalarConverter::ConvertInt(int n)
 
 void ScalarConverter::ConvertDouble(double d)
 {
-	if (isprint(static_cast<char>(d)) == 0)
+	if (d < 0 || d > 255 || std::isprint(static_cast<char>(d)) == 0)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
@@ -67,7 +67,7 @@ void ScalarConverter::ConvertDouble(double d)
 
 void ScalarConverter::ConvertChar(char c)
 {
-	if (isprint(static_cast<int>(c)) == 0)
+	if (std::isprint(static_cast<int>(c)) == 0)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << c << "'" << std::endl;

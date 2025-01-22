@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 14:52:55 by luca              #+#    #+#             */
-/*   Updated: 2024/08/14 15:21:58 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/22 17:30:39 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,6 @@ int main()
 	uintptr_t raw = Serialization::serialize(&data);
 	Data* ptr = Serialization::deserialize(raw);
 	std::cout << ptr << std::endl;
+	std::cout << ptr->n << std::endl;
+	std::cout << ptr->s1 << std::endl;
 }

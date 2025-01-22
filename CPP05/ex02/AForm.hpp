@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 19:12:05 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:06:20 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/17 15:33:44 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class AForm
 		bool getisSigned() const;
 		int getgradeToSign();
 		int getgradeToExectute();
-		virtual void execute(Bureaucrat& bureaucrat) = 0;
+		virtual void execute(Bureaucrat const & bureaucrat) = 0;
 		void beSigned(Bureaucrat& bureaucrat);
 		class GradeTooHighException : public std::exception
 		{

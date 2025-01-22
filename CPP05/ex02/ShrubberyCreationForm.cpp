@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 18:52:12 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:06:57 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/17 15:34:18 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &s) : A
 	*this = s;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat &b)
+void ShrubberyCreationForm::execute(Bureaucrat const &b)
 {
 	if (b.getGrade() > this->getgradeToExectute())
 		throw AForm::GradeTooLowException();

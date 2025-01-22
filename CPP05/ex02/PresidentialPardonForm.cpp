@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:21:57 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:23:01 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/17 15:34:10 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &p) 
 	*this = p;
 }
 
-void PresidentialPardonForm::execute(Bureaucrat &b)
+void PresidentialPardonForm::execute(Bureaucrat const &b)
 {
 	if (b.getGrade() > this->getgradeToExectute())
 		throw AForm::GradeTooLowException();

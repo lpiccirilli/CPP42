@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:54:56 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 16:57:51 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/17 15:33:59 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &r);
 		RobotomyRequestForm(const RobotomyRequestForm &r);
-		void execute(Bureaucrat &executor);
+		void execute(Bureaucrat const &executor);
 		std::string getTarget();
 };
 
