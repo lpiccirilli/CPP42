@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 17:40:47 by luca              #+#    #+#             */
-/*   Updated: 2025/01/23 14:10:57 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/24 17:26:25 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ int main(int, char**)
 {
 	try
 	{
-		int *a = new int();
-		std::cout << *a << std::endl;
 		Array <int>intArray(100);
-		Array <int>copia(intArray);
 		for (int i = 0; i < 100; i++)
 			intArray[i] = i;
-		std::cout << copia[2] << std::endl;
-		std::cout << intArray[2] << std::endl;
+		Array <int>copia(intArray);
+		std::cout << intArray[4] << std::endl;
+		std::cout << copia[4] << std::endl;
 		std::cout << intArray.size() << std::endl;
+		std::cout << copia.size() << std::endl;
+		std::cout << intArray[99] << std::endl;
+		std::cout << copia[99] << std::endl;
 	}
 	catch (std::exception &e)
 	{

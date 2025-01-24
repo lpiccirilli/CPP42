@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 17:58:59 by luca              #+#    #+#             */
-/*   Updated: 2024/08/14 18:32:41 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/24 17:29:30 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <deque>
 
 template <typename T>
 int easyfind(T &container, int n)

@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:43:13 by luca              #+#    #+#             */
-/*   Updated: 2024/08/14 17:40:22 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/24 17:26:35 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,72 +23,75 @@ class Array
 {
 	private:
 		T *array;
-		int index;
+		unsigned int _size;
 	public:
 		Array();
-		Array(int n);
+		Array(unsigned int n);
 		Array(Array const &other);
-		Array<T> operator=(Array<T> const &other);
-		T &operator[](int index);
-		int size() const;
+		Array<T>& operator=(Array<T> const &other);
+		T &operator[](int _size);
+		unsigned int size() const;
 		~Array();
 };
 
-template <typename T>
+template <class T>
 Array<T>::Array()
 {
 	array = NULL;
-	index = 0;
+	_size = 0;
 }
 
 template <typename T>
-Array<T>::Array(int n)
+Array<T>::Array(unsigned int n) : _size(n)
 {
-	array = new T[n];
-	index = n;
-	for (int i = 0; i < n; i++)
-		array[i] = 0;
+	this->array = new T[this->_size];
 }
 
 template <typename T>
-Array<T>::Array(Array const &other)
+Array<T>::Array(Array const &other) : _size(other._size)
 {
-	index = other.index;
-	this->array = new T[other.index];
+	this->array = new T[this->_size];
+	for (unsigned int i = 0; i < this->_size; ++i)
+	{
+		this->array[i] = other.array[i];
+	}
 }
 
 template <typename T>
-Array<T> Array<T>::operator=(Array<T> const &other)
+Array<T>& Array<T>::operator=(Array<T> const &other)
 {
-	std::cout << "Assignation operator called" << std::endl;
 	if (this != &other)
 	{
 		delete[] this->array;
-		this->array = new T[other.index];
-		for (int i = 0; i < other.index; i++)
+		this->_size = other._size;
+		this->array = new T[this->_size];
+		for (unsigned int i = 0; i < this->_size; ++i)
+		{
 			this->array[i] = other.array[i];
+		}
 	}
 	return *this;
 }
 
 template <typename T>
-T &Array<T>::operator[](int index)
+T &Array<T>::operator[](int _size)
 {
-	if (index >= this->index || index < 0)
-		throw std::out_of_range("Index out of range");
-	return array[index];
+	if (_size < 0 ||static_cast <unsigned int>(_size) >= this->_size)
+		throw std::out_of_range("index out of range");
+	return array[_size];
 }
 
 template <typename T>
-int Array<T>::size() const
+unsigned int Array<T>::size() const
 {
-	return index;
+	return this->_size;
 }
 
 template <typename T>
 Array<T>::~Array()
 {
-	delete[] array;
+	if (this->_size > 0)
+		delete[] this->array;
 }
 
 #endif

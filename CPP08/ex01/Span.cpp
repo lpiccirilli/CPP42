@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:56:19 by luca              #+#    #+#             */
-/*   Updated: 2024/08/15 16:39:54 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/24 18:00:43 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int Span::longestSpan()
 		throw std::exception();
 	std::vector<int>::iterator min = std::min_element(array.begin(), array.end());
 	std::vector<int>::iterator max = std::max_element(array.begin(), array.end());
-	return max - min;
+	return *max - *min;
 }
 
 int Span::shortestSpan()
@@ -40,11 +40,11 @@ int Span::shortestSpan()
 	if (array.size() < 2)
 		throw std::exception();
 	std::sort(array.begin(), array.end());
-	int tmp;
-	for (size_t i = 0; i < N - 1; i++)
+	int res = array[1] - array[0];
+	for (unsigned int i = 0; i < array.size() - 1; i++)
 	{
-		if (tmp > (array[i + 1] - array[i]))
-			tmp = array[i + 1] - array[i];
+		if (array[i + 1] - array[i] < res)
+			res = array[i + 1] - array[i];
 	}
-	return tmp;
+	return res;
 }

@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:56:41 by luca              #+#    #+#             */
-/*   Updated: 2024/08/15 14:11:02 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/24 17:43:47 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 class Span
 {
 	private:
-		std::vector<int> array;
 		unsigned int N;
 	public:
+		std::vector<int> array;
 		Span(unsigned int N);
 		int longestSpan();
 		int shortestSpan();
