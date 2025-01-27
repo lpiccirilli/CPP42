@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:56:19 by luca              #+#    #+#             */
-/*   Updated: 2025/01/24 18:00:43 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/27 15:23:27 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,17 @@ int Span::longestSpan()
 	std::vector<int>::iterator min = std::min_element(array.begin(), array.end());
 	std::vector<int>::iterator max = std::max_element(array.begin(), array.end());
 	return *max - *min;
+}
+
+void Span::addManyNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	int size = std::distance(begin, end);
+	if (array.size() + size <= N)
+	{
+		array.insert(array.end(), begin, end);
+	}
+	else
+		throw std::exception();
 }
 
 int Span::shortestSpan()

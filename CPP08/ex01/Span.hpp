@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:56:41 by luca              #+#    #+#             */
-/*   Updated: 2025/01/24 17:43:47 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/27 15:21:04 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Span
 		int longestSpan();
 		int shortestSpan();
 		void addNumber(int n);
+		void addManyNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 };
 
 #endif

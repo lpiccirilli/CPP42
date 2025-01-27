@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 16:42:22 by luca              #+#    #+#             */
-/*   Updated: 2024/08/15 16:59:01 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/27 15:35:30 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ class MutantStack : public std::stack<T>
 			return *this;
 		}
 		typedef typename std::stack<T>::container_type::iterator iterator;
-
 		iterator begin()
 		{
 			return this->c.begin();

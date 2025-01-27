@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 13:31:13 by luca              #+#    #+#             */
-/*   Updated: 2025/01/24 17:57:54 by luca             ###   ########.fr       */
+/*   Updated: 2025/01/27 15:33:50 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ int main()
 	try
 	{
 		Span sp = Span(5);
-		sp.addNumber(6);
-		sp.addNumber(3);
-		sp.addNumber(17);
-		sp.addNumber(9);
-		sp.addNumber(11);
+		int arr[] = {1, 2, 3, 4, 5};
+		std::vector<int> v(arr, arr + sizeof(arr) / sizeof(arr[0]));
+		sp.addManyNumbers(v.begin(), v.end());
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
