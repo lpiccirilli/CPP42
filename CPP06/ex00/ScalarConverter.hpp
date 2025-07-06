@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 19:36:54 by luca              #+#    #+#             */
-/*   Updated: 2024/08/14 15:23:03 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 18:30:33 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <cctype>
 #include <string>
 #include <cstdlib>
+#include <iomanip>
 
 class ScalarConverter
 {

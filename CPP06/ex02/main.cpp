@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 15:37:18 by luca              #+#    #+#             */
-/*   Updated: 2024/08/14 15:45:22 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 18:41:13 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 Base * generate()
 {
-	std::srand(std::time(0));
 	int i = std::rand() % 3;
 	if (i == 0)
 		return new A;
@@ -57,6 +56,7 @@ void identify(Base& p)
 
 int main()
 {
+	std::srand(std::time(NULL));
 	Base *prova = generate();
 	identify(prova);
 	identify(*prova);

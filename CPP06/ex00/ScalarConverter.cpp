@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 15:22:21 by luca              #+#    #+#             */
-/*   Updated: 2025/01/22 16:42:32 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 18:30:47 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,29 @@ ScalarConverter::ScalarConverter(const ScalarConverter& other)
 		*this = other;
 }
 
+
 void ScalarConverter::ConvertFloat(float f)
 {
 	if (f < 0 || f > 255 || std::isprint(static_cast<int>(f)) == 0)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
+
 	std::cout << "int: " << static_cast<int>(f) << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(f) << std::endl;
 }
 
 void ScalarConverter::ConvertInt(int n)
 {
 	if (n < 0 || n > 255 || std::isprint(static_cast<int>(n)) == 0)
-			std::cout << "char: Non displayable" << std::endl;
+		std::cout << "char: Non displayable" << std::endl;
 	else
-			std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
-		std::cout << "int: " << n << std::endl;
-		std::cout << "float: " << static_cast<float>(n) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(n) << std::endl;
+		std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
+
+	std::cout << "int: " << n << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(n) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(n) << std::endl;
 }
 
 void ScalarConverter::ConvertDouble(double d)
@@ -60,9 +63,10 @@ void ScalarConverter::ConvertDouble(double d)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+
 	std::cout << "int: " << static_cast<int>(d) << std::endl;
-	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
 
 void ScalarConverter::ConvertChar(char c)
@@ -71,10 +75,12 @@ void ScalarConverter::ConvertChar(char c)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << c << "'" << std::endl;
+
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(c) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
+
 
 void ScalarConverter::convert(const std::string &value)
 {
@@ -110,11 +116,11 @@ void ScalarConverter::convert(const std::string &value)
 	char *endptr;
 	if (value.length() > 1 && value[value.length() - 1] == 'f')
 	{
-		float f = std::strtof(value.substr(0, value.length() - 1).c_str(), &endptr);
-		if (*endptr == '\0')
+		float f = std::strtof(value.c_str(), &endptr);
+		if (endptr != value.c_str() && *(endptr + 1) == '\0')
 		{
 			ConvertFloat(f);
-			return ;
+			return;
 		}
 	}
 	long long int n = std::strtoll(value.c_str(), &endptr, 10);
@@ -129,10 +135,10 @@ void ScalarConverter::convert(const std::string &value)
 		ConvertDouble(d);
 		return ;
 	}
-	if (value.length() != 1)
+	if (value.length() == 1)
 	{
-		std::cout << "Invalid input" << std::endl;
-		return ;
+		ConvertChar(value[0]);
+		return;
 	}
-	ConvertChar(value.at(0));
+	std::cout << "Invalid input" << std::endl;
 }
