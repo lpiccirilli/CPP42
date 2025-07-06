@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:09:19 by luca              #+#    #+#             */
-/*   Updated: 2025/01/24 16:47:19 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 18:47:05 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ int main()
 	std::cout << std::endl;
 	char *array4 = NULL;
 	::iter(array4, 1, print);
-	std::cout << std::endl;
 	return 0;
 }

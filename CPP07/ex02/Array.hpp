@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:43:13 by luca              #+#    #+#             */
-/*   Updated: 2025/01/24 17:26:35 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 18:49:03 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,7 @@ unsigned int Array<T>::size() const
 template <typename T>
 Array<T>::~Array()
 {
-	if (this->_size > 0)
-		delete[] this->array;
+	delete[] this->array;
 }
 
 #endif
