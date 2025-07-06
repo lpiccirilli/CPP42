@@ -6,9 +6,12 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 16:54:54 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:24:31 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 17:50:51 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "RobotomyRequestForm.hpp"
+
 
 #include "RobotomyRequestForm.hpp"
 
@@ -29,17 +32,28 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &r) : AForm(r
 	*this = r;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat &executor)
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+
+}
+
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	int num = 0;
-	if (executor.getGrade() > this->getgradeToExectute())
+	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
-	if (this-> getisSigned() == false)
+	if (this-> getIsSigned() == false)
 		throw AForm::FormNotSignedException();
 	srand(time(NULL));
 	num = rand() % 2;
+	std::cout << "Making drilling noises..." << std::endl;
 	if (num == 1)
-		std::cout << "RobotomyRequestForm has been robotomized" << std::endl;
+		std::cout << this->target << " has been robotomized successfully" << std::endl;
 	else
-		std::cout << "RobotomyRequestForm robotomization failed" << std::endl;
+		std::cout << this->target << " robotomization failed" << std::endl;
+}
+
+std::string RobotomyRequestForm::getTarget() const
+{
+	return this->target;
 }

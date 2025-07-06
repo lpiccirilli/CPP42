@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:21:54 by luca              #+#    #+#             */
-/*   Updated: 2025/01/17 15:33:53 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 16:36:34 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &p);
 		PresidentialPardonForm(const PresidentialPardonForm &p);
-		void execute(Bureaucrat const &executor);
-		std::string getTarget();
+		virtual ~PresidentialPardonForm();
+		void execute(Bureaucrat const &executor) const;
+		std::string getTarget() const;
 };
 
 #endif

@@ -6,13 +6,14 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 16:23:38 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:17:54 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 17:40:47 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
+
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name)
 {
 		if (grade < 1)
 			throw GradeTooHighException();
@@ -23,9 +24,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.name), grade(bureaucrat.grade)
 {
-	if (this == &bureaucrat)
-		return ;
-	*this = bureaucrat;
+}
+
+Bureaucrat::~Bureaucrat()
+{
+
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bureaucrat)
@@ -75,11 +78,13 @@ void Bureaucrat::decrementGrade()
 		throw GradeTooLowException();
 }
 
+
 void Bureaucrat::signForm(AForm& f)
 {
 	try
 	{
 		f.beSigned(*this);
+		std::cout << getName() << " signed " << f.getName() << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -87,13 +92,15 @@ void Bureaucrat::signForm(AForm& f)
 	}
 }
 
-void Bureaucrat::executeForm(AForm  &form)
+void Bureaucrat::executeForm(AForm const &form)
 {
-	if (getGrade() <= form.getgradeToExectute())
+	try
 	{
 		form.execute(*this);
 		std::cout << getName() << " executed " << form.getName() << std::endl;
 	}
-	else
-		std::cout << getName() << " couldn’t execute " << form.getName() << " because grade is too low" << std::endl;
+	catch (std::exception &e)
+	{
+		std::cout << getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+	}
 }

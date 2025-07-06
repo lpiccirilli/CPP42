@@ -6,15 +6,14 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 18:52:12 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:06:57 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 17:39:13 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
-	this->target = target;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &s)
@@ -30,11 +29,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &s) : A
 	*this = s;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat &b)
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	if (b.getGrade() > this->getgradeToExectute())
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const &b) const
+{
+	if (b.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
-	if (this->getisSigned() == false)
+	if (this->getIsSigned() == false)
 		throw AForm::FormNotSignedException();
 	std::cout << "ShrubberyCreationForm executed" << std::endl;
 	std::string filename = this->target + "_shrubbery";
@@ -51,7 +54,7 @@ void ShrubberyCreationForm::execute(Bureaucrat &b)
 	outfile.close();
 }
 
-std::string ShrubberyCreationForm::getTarget()
+std::string ShrubberyCreationForm::getTarget() const
 {
 	return this->target;
 }

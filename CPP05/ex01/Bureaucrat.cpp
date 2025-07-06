@@ -6,13 +6,14 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 16:23:38 by luca              #+#    #+#             */
-/*   Updated: 2024/07/15 17:44:15 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 17:40:43 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name)
 {
 		if (grade < 1)
 			throw GradeTooHighException();
@@ -23,9 +24,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.name), grade(bureaucrat.grade)
 {
-	if (this == &bureaucrat)
-		return ;
-	*this = bureaucrat;
+}
+
+Bureaucrat::~Bureaucrat()
+{
+
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bureaucrat)
@@ -75,13 +78,15 @@ void Bureaucrat::decrementGrade()
 		throw GradeTooLowException();
 }
 
-void Bureaucrat::signForm(Form& f)
+void Bureaucrat::signForm(Form &form)
 {
-	if (getGrade() <= f.getgradeToSign())
+	try
 	{
-		f.beSigned(*this);
-		std::cout << getName() << " signed " << f.getName() << std::endl;
+		form.beSigned(*this);
+		std::cout << name << " signed " << form.getName() << std::endl;
 	}
-	else
-		std::cout << getName() << " couldn’t sign " << f.getName() << " because grade is too low" << std::endl;
+	catch (const std::exception& e)
+	{
+		std::cout << name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }

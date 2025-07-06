@@ -6,11 +6,12 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:21:54 by luca              #+#    #+#             */
-/*   Updated: 2025/01/16 17:44:59 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 16:05:07 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
@@ -26,8 +27,9 @@ int main()
 		Form form2("Tax2 Form", 5, 3);
 		std::cout << form2 << std::endl;
 		// Proviamo a firmare il form con un grado troppo basso
-		Bureaucrat bureaucrat2("Alice", 6);
+		Bureaucrat bureaucrat2("Alice", 7);
 		bureaucrat2.signForm(form2);
+		std::cout << form2 << std::endl;
 	}
 	catch (const std::exception &e)
 	{

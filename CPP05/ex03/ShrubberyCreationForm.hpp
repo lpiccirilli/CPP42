@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 18:52:15 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 16:36:22 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 17:39:20 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &s);
 		ShrubberyCreationForm(const ShrubberyCreationForm &s);
-		void execute(Bureaucrat &executor);
-		std::string getTarget();
+		virtual ~ShrubberyCreationForm();
+		void execute(Bureaucrat const &executor) const;
+		std::string getTarget() const;
 };
 
 #endif

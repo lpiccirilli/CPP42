@@ -6,19 +6,20 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 19:34:10 by luca              #+#    #+#             */
-/*   Updated: 2025/01/16 17:34:37 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 16:03:43 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(std::string name, const int gradeToSign, const int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+Form::Form(const std::string& name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
-	if (gradeToExecute > 150 || gradeToSign > 150)
-		throw GradeTooLowException();
-	if (gradeToExecute < 1 || gradeToSign < 1)
+	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExecute > 150)
+		throw GradeTooLowException();
 }
+
 const char* Form::GradeTooHighException::what() const throw()
 {
 	return "Grade is too high";
@@ -50,10 +51,8 @@ int Form::getgradeToExectute() const
 
 void Form::beSigned(Bureaucrat& b)
 {
-	if (gradeToSign >= b.getGrade())
-		GradeTooLowException();
-	if (isSigned == true)
-		return ;
+	if (b.getGrade() > gradeToSign)
+		throw GradeTooLowException();
 	isSigned = true;
 }
 
@@ -68,6 +67,10 @@ Form &Form::operator=(Form const &form)
 	return *this;
 }
 
+Form::~Form()
+{
+}
+
 std::ostream& operator<<(std::ostream& os, const Form& form)
 {
 	if (form.getisSigned() == true)
@@ -77,7 +80,5 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 	return os;
 }
 
-Form::Form(const Form &form) : name(form.name), isSigned(form.isSigned), gradeToSign(form.gradeToSign), gradeToExecute(form.gradeToExecute)
-{
-	*this = form;
-}
+Form::Form(const Form& form): name(form.name), isSigned(form.isSigned), gradeToSign(form.gradeToSign), gradeToExecute(form.gradeToExecute)
+{}

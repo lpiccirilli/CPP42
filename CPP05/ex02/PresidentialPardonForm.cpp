@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:21:57 by luca              #+#    #+#             */
-/*   Updated: 2025/01/17 15:34:10 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 16:27:26 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,24 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return *this;
 }
 
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+}
+
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &p) : AForm(p)
 {
-	*this = p;
 }
 
-void PresidentialPardonForm::execute(Bureaucrat const &b)
+void PresidentialPardonForm::execute(const Bureaucrat &b) const
 {
-	if (b.getGrade() > this->getgradeToExectute())
+	if (b.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
-	if (this->getisSigned() == false)
+	if (this->getIsSigned() == false)
 		throw AForm::FormNotSignedException();
-	std::cout << this->target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
 
+std::string PresidentialPardonForm::getTarget() const
+{
+	return this->target;
+}

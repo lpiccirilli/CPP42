@@ -6,18 +6,23 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 19:34:10 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 18:21:05 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 17:37:19 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, const int gradeToSign, const int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+AForm::AForm(std::string const &name, int gradeToSign, int gradeToExecute)
+	: name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
-	if (gradeToExecute > 150 || gradeToSign > 150)
-		throw GradeTooLowException();
-	if (gradeToExecute < 1 || gradeToSign < 1)
-		throw GradeTooHighException();
+	if (gradeToSign < 1 || gradeToExecute < 1)
+		throw AForm::GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExecute > 150)
+		throw AForm::GradeTooLowException();
+}
+
+AForm::AForm(const AForm &form)
+	: name(form.name), isSigned(form.isSigned), gradeToSign(form.gradeToSign), gradeToExecute(form.gradeToExecute){
 }
 
 AForm::~AForm()
@@ -39,51 +44,43 @@ const char* AForm::FormNotSignedException::what() const throw()
 	return "Form is not signed";
 }
 
-std::string AForm::getName()
+std::string AForm::getName() const
 {
 	return name;
 }
 
-bool AForm::getisSigned() const
+bool AForm::getIsSigned() const
 {
 	return isSigned;
 }
 
-int AForm::getgradeToSign()
+int AForm::getGradeToSign() const
 {
 	return gradeToSign;
 }
 
-int AForm::getgradeToExectute()
+int AForm::getGradeToExecute() const
 {
 	return gradeToExecute;
 }
 
 void AForm::beSigned(Bureaucrat& b)
 {
-	if (isSigned == true)
-	{
-		std::cout << b.getName() << " couldn't sign " << name << " because it's already signed" << std::endl;
-		return ;
-	}
 	if (gradeToSign < b.getGrade())
-	{
-		std::cout << b.getName() << " couldn't sign " << name << " because his grade is too low" << std::endl;
 		throw AForm::GradeTooLowException();
-	}
-	std::cout << b.getName() << " signed " << name << std::endl;
 	isSigned = true;
 }
 
 AForm &AForm::operator=(AForm const &form)
 {
 	if (this != &form)
-		this->isSigned = form.getisSigned();
+		this->isSigned = form.getIsSigned();
 	return *this;
 }
 
-AForm::AForm(const AForm &form) : name(form.name), isSigned(form.isSigned), gradeToSign(form.gradeToSign), gradeToExecute(form.gradeToExecute)
-{
-	*this = form;
-}
 
+std::ostream& operator<<(std::ostream& os, const AForm& form)
+{
+	os << form.getName() << " form, signed: " << (form.getIsSigned() ? "yes" : "no") << ", grade to sign: " << form.getGradeToSign()<< ", grade to execute: " << form.getGradeToExecute();
+	return os;
+}

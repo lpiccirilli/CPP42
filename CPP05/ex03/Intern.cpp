@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 19:10:57 by luca              #+#    #+#             */
-/*   Updated: 2024/07/25 19:25:01 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 17:44:59 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,22 @@ AForm *Intern::makeForm(std::string form, std::string target)
 		if (!forms[i].find(form))
 			break;
 	}
+	AForm* result = NULL;
 	switch (i)
 	{
 		case 0:
-			return new ShrubberyCreationForm(target);
+			result = new ShrubberyCreationForm(target);
 			break;
 		case 1:
-			return new RobotomyRequestForm(target);
+			result = new RobotomyRequestForm(target);
 			break;
 		case 2:
-			return new PresidentialPardonForm(target);
+			result = new PresidentialPardonForm(target);
 			break;
 		default:
 			throw FormNotFoundException();
-			break;
 	}
-	return NULL;
+	if (result != NULL)
+		std::cout << "Intern creates " << form << std::endl;
+	return result;
 }
