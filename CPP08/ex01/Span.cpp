@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:56:19 by luca              #+#    #+#             */
-/*   Updated: 2025/01/27 15:23:27 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 19:36:19 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,24 @@
 Span::Span(unsigned int N) : N(N)
 {
 }
+
+Span::Span(const Span& other)
+	: N(other.N), array(other.array)
+{
+}
+
+Span& Span::operator=(const Span& other)
+{
+	if (this != &other)
+	{
+		N = other.N;
+		array = other.array;
+	}
+	return *this;
+}
+
+Span::~Span(){}
+
 
 void Span::addNumber(int n)
 {
@@ -25,6 +43,7 @@ void Span::addNumber(int n)
 	else
 		throw std::exception();
 }
+
 
 int Span::longestSpan()
 {

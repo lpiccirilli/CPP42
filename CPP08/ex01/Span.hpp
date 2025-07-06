@@ -6,12 +6,12 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 18:56:41 by luca              #+#    #+#             */
-/*   Updated: 2025/01/27 15:21:04 by luca             ###   ########.fr       */
+/*   Updated: 2025/07/06 19:34:55 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
-#define SPAN_CPP
+#define SPAN_HPP
 
 #include <vector>
 #include <iostream>
@@ -23,9 +23,12 @@ class Span
 {
 	private:
 		unsigned int N;
-	public:
 		std::vector<int> array;
+	public:
 		Span(unsigned int N);
+		Span(const Span& other);
+		Span& operator=(const Span& other);
+		~Span();
 		int longestSpan();
 		int shortestSpan();
 		void addNumber(int n);
