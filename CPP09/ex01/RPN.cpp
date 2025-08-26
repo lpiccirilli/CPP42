@@ -20,7 +20,7 @@ RPN::RPN(char *str)
 		std::cerr << "Parsing Error" << std::endl;
 		return ;
 	}
-	for (int i; str[i] != '\0'; i++)
+	for (int i = 0; str[i] != '\0'; i++)
 	{
 		char temp = str[i];
 		switch(temp)
@@ -54,23 +54,21 @@ RPN::RPN(char *str)
 			}
 			default:
 			{
-				std::cerr << "Error" << std::endl;
-				return ;
+				break;
 			}
 		}
 	}
 	if (stack.size() == 1)
 		std::cout << stack.top() << std::endl;
 	else
-		std::cerr << "Error" << std::endl;
+		throw std::runtime_error("Error");
 }
 
 void RPN::do_operation(char c)
 {
 	if (stack.size() < 2)
 	{
-		std::cerr << "Error" << std::endl;
-		return ;
+		throw std::runtime_error("Error");
 	}
 	int b = stack.top();
 	stack.pop();
@@ -82,6 +80,6 @@ void RPN::do_operation(char c)
 		stack.push(a - b);
 	else if (c == '*')
 		stack.push(a * b);
-	else if (c == '/')
+	else if (c == '/' && b != 0)
 		stack.push(a / b);
 }
