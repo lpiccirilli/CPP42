@@ -18,7 +18,7 @@ int main(int ac, char **av)
 		std::vector<int> v;
 		clock_t start_vector = clock();
 		pm.insert_vector(av + 1, v);
-		std::vector<int> vector_sorted = pm.merge_vector(v);
+		std::vector<int> vector_sorted = pm.merge(v);
 		clock_t end_vector = clock();
 		std::cout << "After : ";
 		for (std::vector<int>::iterator it_sorted = vector_sorted.begin(); it_sorted != vector_sorted.end(); it_sorted++)
@@ -29,7 +29,7 @@ int main(int ac, char **av)
 		std::deque<int> d;
 		clock_t start_deque = clock();
 		pm.insert_deque(av + 1, d);
-		std::deque<int> deque_sorted = pm.merge_deque(d);
+		std::deque<int> deque_sorted = pm.merge(d);
 		clock_t end_deque = clock();
 		std::cout << "Time to process a range of " << d.size() << " elements with std::deque : "
 			<< static_cast<double>(end_deque - start_deque) / CLOCKS_PER_SEC * 1000 << " us" <<std::endl;

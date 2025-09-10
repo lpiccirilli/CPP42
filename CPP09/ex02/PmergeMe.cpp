@@ -56,42 +56,33 @@ void PmergeMe::insert_deque(char **args, std::deque<int> &deque)
 	}
 }
 
-std::vector<int> PmergeMe::merge_vector(std::vector<int> container)
+void PmergeMe::gen_jacobsthal_order(std::vector<size_t> &order, size_t totalPairs)
 {
-	std::vector<int> temp(container);
-	if (temp.size() < 2)
-		std::stable_sort(temp.begin(), temp.end());
-	else
-	{
-		std::vector<int>::iterator mid = temp.begin() + (temp.size() / 2);
-		std::vector<int> left(temp.begin(), mid);
-		std::vector<int> right(mid, temp.end());
+    order.clear();
+    if (totalPairs == 0) return;
 
-		left = merge_vector(left);
-		right = merge_vector(right);
+    // Build Jacobsthal sequence up to totalPairs
+    std::vector<size_t> J;
+    J.push_back(0); // J0
+    J.push_back(1); // J1
+    while (J.back() < totalPairs)
+        J.push_back(J[J.size()-1] + 2 * J[J.size()-2]);
 
-		temp.clear();
-		std::merge(left.begin(), left.end(), right.begin(), right.end(), std::back_inserter(temp));
-	}
-	return temp;
-}
+    // Translate into insertion order
+    size_t prev = 1;
+    for (size_t i = 2; i < J.size(); ++i) {
+        size_t curr = J[i];
+        if (curr > totalPairs) curr = totalPairs;
 
-std::deque<int> PmergeMe::merge_deque(std::deque<int> container)
-{
-	std::deque<int> temp(container);
-	if (temp.size() < 2)
-		std::stable_sort(temp.begin(), temp.end());
-	else
-	{
-		std::deque<int>::iterator mid = temp.begin() + (temp.size() / 2);
-		std::deque<int> left(temp.begin(), mid);
-		std::deque<int> right(mid, temp.end());
+        for (size_t j = curr; j-- > prev; )
+            order.push_back(j);
 
-		left = merge_deque(left);
-		right = merge_deque(right);
+        prev = curr;
+    }
 
-		temp.clear();
-		std::merge(left.begin(), left.end(), right.begin(), right.end(), std::back_inserter(temp));
-	}
-	return temp;
+    // Fill remaining indices
+    if (prev < totalPairs) {
+        for (size_t j = totalPairs; j-- > prev; )
+            order.push_back(j);
+    }
 }

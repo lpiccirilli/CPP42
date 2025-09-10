@@ -17,7 +17,7 @@ RPN::RPN(char *str)
 {
 	if (check(str) == -1)
 	{
-		std::cerr << "Parsing Error" << std::endl;
+		throw std::runtime_error("Error");
 		return ;
 	}
 	for (int i = 0; str[i] != '\0'; i++)
