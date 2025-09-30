@@ -82,4 +82,10 @@ void RPN::do_operation(char c)
 		stack.push(a * b);
 	else if (c == '/' && b != 0)
 		stack.push(a / b);
+	else if (c == '/')
+	{
+		if (b == 0)
+			throw std::runtime_error("Error");
+		stack.push(a / b);
+	}
 }
